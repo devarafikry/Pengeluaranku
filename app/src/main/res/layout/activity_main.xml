@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ttc.project.sqllatihan.MainActivity">
+
+        <TextView
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:text="PENGELUARANKU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/tv_name"
+                android:text="Nama"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/tv_deskripsi"
+                android:text="Deskripsi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/tv_harga"
+                android:text="Harga"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/tv_aksi"
+                android:text="Aksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_margin="10dp"
+            android:id="@+id/rv_pengeluaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:src="@drawable/ic_add"
+        android:layout_margin="10dp"
+        android:layout_gravity="bottom|right"
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"/>
+</FrameLayout>
