@@ -16,6 +16,20 @@ import android.support.annotation.Nullable;
  */
 
 public class DatabaseProvider extends ContentProvider{
+    // TODO (6) inilah kelas yang harus dibuat ketika kita membuat ContentProvider, yaitu kelas yang
+    // extend ContentProvider
+    // TODO (7) disini ada 2 variable konstan yaitu pengeluaran dan pengeluaran_with_id, ini berperan
+    // untuk menyeleksi request dari aplikasi nantinya apakah request tersebut di peruntukkan untuk
+    // data yang jamak (semua data) atau salah satu data saja (with id)
+    // TODO (8) definisikan juga mDatabaseHelper untuk melakukan operasi database. Disinilah perbedaannya
+    // dalam menggunakan Content Provider dengan langsung melakukan operasi db di activity. Jadi dengan
+    // menggunakan Content Provider, akses ke DatabaseHelper di sendirikan dalam kelas ini sehingga
+    // tidak sembarangan aplikasi bisa lansung melakukan operasi database
+    // TODO (9) definisikan Uri matcher. Bayangkan, nantinya kelas ini akan menerima URI. tentunya
+    // kelas ini perlu mengidentifikasi request seperti apa yang diinginkan. Oleh karena itu, Uri
+    // matcher ini akan membantu Content Provider untuk mengidentifikasi Uri yang masuk berdasarkan
+    // konstan yang kita definisian di atas
+    // TODO (10) method build Uri matcher untuk membuat filter terhadap uri yang masuk
     public static final int PENGELUARAN = 100;
     public static final int PENGELUARAN_WITH_ID = 101;
 
@@ -30,6 +44,8 @@ public class DatabaseProvider extends ContentProvider{
         return uriMatcher;
     }
 
+    // TODO (11) didalam oncreate definisikan database helper yang akan kita gunakan untuk
+    // melakukan operasi database
     @Override
     public boolean onCreate() {
         Context context = getContext();
@@ -37,6 +53,10 @@ public class DatabaseProvider extends ContentProvider{
         return true;
     }
 
+    // TODO (12) method query mendefinisikan apa yang akan dikembalikan oleh Content Provider untuk
+    // Uri request query
+    // Disini pertama mendefinisikan SQLiteDatabase apa yang akan kita gunakan, kemudian filter Uri
+    // dengan match.
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
@@ -69,6 +89,10 @@ public class DatabaseProvider extends ContentProvider{
         return null;
     }
 
+    // TODO (13) method insert mendefinisikan apa yang akan dikembalikan oleh Content Provider untuk
+    // Uri request insert
+    // Disini pertama mendefinisikan SQLiteDatabase apa yang akan kita gunakan, kemudian filter Uri
+    // dengan match.
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
@@ -95,6 +119,13 @@ public class DatabaseProvider extends ContentProvider{
         return returnUri;
     }
 
+    // TODO (14) method delete mendefinisikan apa yang akan dikembalikan oleh Content Provider untuk
+    // Uri request delete
+    // Disini pertama mendefinisikan SQLiteDatabase apa yang akan kita gunakan, kemudian filter Uri
+    // dengan match.
+    // Di method delete ini Content Provider memerlukan Id yang didapat dari URI, oleha karena itu
+    // diambil variable id dari uri.getPathSegements().get(1) yaitu variable # pertama yang didapat
+    // setelah path
     @Override
     public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
         int pengeluaranDeleted;
@@ -119,6 +150,10 @@ public class DatabaseProvider extends ContentProvider{
         return pengeluaranDeleted;
     }
 
+    // TODO (15) method update mendefinisikan apa yang akan dikembalikan oleh Content Provider untuk
+    // Uri request update
+    // Disini pertama mendefinisikan SQLiteDatabase apa yang akan kita gunakan, kemudian filter Uri
+    // dengan match.
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
         return 0;

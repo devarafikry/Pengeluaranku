@@ -16,19 +16,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements ItemAction{
 
-    // TODO (1) Definisikan database contract
-    // TODO (2) Definisikan database table name dan column nya
-    // TODO (3) Definisikan helper extends SQLiteOpenHelper untuk memudahkan operasi database
-    // TODO (4) Override semua method yg diperlukan pada databasehelper
-    // TODO (5) Di databasehelper definisikan nama db dan versi db
-    // TODO (6) buat juga constructor pada databasehelper dengan parameter context
-    // TODO (7) pada constructor databasehelper, masukkan context, database_name, null, dan database_version
-    // TODO (8) kemudian pada oncreate buat string untuk membuat table pengeluaran (syntaks sqlite)
-    // TODO (9) execute string tersebut pada oncreate menggunakan sqlitedatabase
-    // TODO (10) pada onupgrade execute sql untuk drop table if exist
-    // TODO (11) bikin layout activity main
-    // TODO (11) bikin kelas addPengeluaran dan layoutnya
-
+    // TODO (1) Di TODO ini kujelaskan step-step untuk membuat ContentProvider
 
     FloatingActionButton btn_add;
     RecyclerView rv_pengeluaran;
@@ -82,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements ItemAction{
 //                null,
 //                null
 //        );
+        // TODO (17) ini untuk memanggil content provider query
         return getContentResolver().query(
                 DatabaseContract.PengeluaranEntry.CONTENT_URI,
                 null,
@@ -90,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements ItemAction{
                 null
         );
     }
-
 
     @Override
     public void delete(final String deletedId) {
@@ -104,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements ItemAction{
 //                        "_id=?",
 //                        new String[]{deletedId}
 //                );
+                // TODO (18) ini untuk memanggil content provider delete
                 Uri uri = DatabaseContract.PengeluaranEntry.CONTENT_URI;
                 getContentResolver().delete(
                         uri.buildUpon().appendPath(deletedId).build(),

@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--TODO (16) untuk menggunakan content provider yang telah kita buat, pertama definiskan
+        provider di manifest aplikasi yang akan kita gunakan, saat ini kita mau menggunakan di
+        aplikasi yang sama, maka tetap saja kita harus mendefinisikan nya di manifest dulu-->
         <provider
             android:authorities="ttc.project.sqllatihan"
             android:name="ttc.project.sqllatihan.DatabaseProvider"

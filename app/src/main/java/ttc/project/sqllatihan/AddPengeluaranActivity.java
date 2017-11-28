@@ -73,6 +73,7 @@ public class AddPengeluaranActivity extends AppCompatActivity {
 //                null,
 //                contentValues
 //        );
+        // TODO (19) ini untuk memanggil content provider insert
         Uri uri = getContentResolver().insert(
                 DatabaseContract.PengeluaranEntry.CONTENT_URI,
                 contentValues
